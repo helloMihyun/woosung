@@ -1,10 +1,11 @@
 $(document).ready(function(){
+    // $('#gnbMenu .depth_2').hide();
     $('#gnbMenu .depth_1 > a').on('mouseover',function(){
-        // alert('f');
-        $('.depth_2').addClass('active');
+        $('#gnbMenu .depth_2').fadeIn(300);
+        $('header').addClass('active');
     });
-    $('#gnbMenu ').on('mouseleave',function(){
-        // alert('f');
-        $('.depth_2').removeClass('active');
+    $('header').on('mouseleave',function(){
+        $('#gnbMenu .depth_2').hide();
+        $('header').removeClass('active');
     });
 });

@@ -51,8 +51,11 @@ h1,h2,h3,h4,h5,h6,strong {font-family:"NanumSquare";font-weight:normal;}
 .wrpper {min-width:1200px;}
 .inner_wrap {width:1110px;margin:0 auto;}
 
-header {border-bottom:1px solid #ddd;border-bottom: 1px solid #000;}
+header {position:relative;border-bottom:1px solid #ddd;border-bottom: 1px solid #000;transition:all .5;}
 header .inner_wrap {position:relative;}
+header:after {content:"";display:block;width:100%;height:0px;position:absolute;left:0;top:0;background:#fff;transform:translateY(87px);z-index:-1;transition:all .3s;}
+header.active:after {content:"";display:block;height:350px;z-index:99;transition:all .3s;}
+
 .header_left {position:absolute;left:0;top:50%;transform:translateY(-50%);}
 .header_right {position:absolute;right:0;top:50%;transform:translateY(-50%);}
 .header_right > a {position:relative; display:inline-block;text-indent:-9998px;font-size:0;}
@@ -61,15 +64,15 @@ header .inner_wrap {position:relative;}
 .header_right .all_menu_btn span {display:block;width:30px;height:3px;background:#222;}
 .header_right .all_menu_btn span + span {margin-top:5px;}
 .header_right .icon_sch {width:30px;height:30px;}
-#gnbMenu {font-size:0;text-align:center;}
-#gnbMenu:after {content:"";display:block;;}
-#gnbMenu > li {position:relative;display:inline-block;padding:0 10px;font-size:15px;}
+#gnbMenu {font-size:0;text-align:center;z-index:100;}
+#gnbMenu > li {position:relative;display:inline-block;width:15%; padding:0 10px;font-size:15px;z-index:100;}
 #gnbMenu .depth_1 > a {display:block;padding:28px 10px;font-size:20px;}
-#gnbMenu .depth_2 {position:absolute;width:100%;z-index:10;font-size:14px;background:#fff;}
+#gnbMenu .depth_2 {position:absolute;width:100%;z-index:10;font-size:14px;background:#fff;border-left:1px solid #eaeaea;}
+#gnbMenu .depth_1:last-child .depth_2 {border-right:1px solid #eaeaea;}
 #gnbMenu .depth_2 li {}
-#gnbMenu .depth_2 li a {display:block;padding:10px; font-size:15px;}
-#gnbMenu .depth_2 {padding-top: 1rem;opacity:0;height:0;}/* .active */
-#gnbMenu .depth_2.active {padding-top: 1rem;opacity: 1;height: 280px;}/* .active */
+#gnbMenu .depth_2 li a {display:block;padding:10px 0;font-size:15px;}
+#gnbMenu .depth_2 {padding-top:1rem;margin-top:1px;opacity:0;height:0;transition:all .4s;}
+header.active #gnbMenu .depth_2 {padding-top:1rem;opacity: 1;height:280px;transition:all .4s;}/* .active */
 /* #gnbMenu .depth_2 li > a {}.active */
 
 
